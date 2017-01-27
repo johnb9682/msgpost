@@ -84,6 +84,17 @@ public class UserController extends JavaEEFrameworkBaseController<User> implemen
 		writeJSON(response, result);
 	}
 	
+	// Temporary
+	// Chinese Chess
+	@RequestMapping("/chinesechess")
+	public ModelAndView chinesechess(HttpServletRequest request, HttpServletResponse response) throws Exception {  
+		
+		System.out.println("Chinese Chess Controller");   
+	    User user = userService.get(((User) request.getSession().getAttribute(SESSION_SYS_USER)).getUserid());
+		ModelAndView mv = new ModelAndView("chineseChess", "user", user); 
+		return mv;
+	}  
+	
 	// 注册
 	@RequestMapping("/register")
 	public void register(User userModel, HttpServletRequest request, HttpServletResponse response) throws IOException {
